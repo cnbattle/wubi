@@ -6,7 +6,6 @@ import (
 )
 
 func main() {
-	got := wubi.Get("朱文倩")
-	log.Println(got)
+	got, err := wubi.Get("朱文倩")
+	log.Println(got, err)
 }
-

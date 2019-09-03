@@ -20,16 +20,16 @@ func main() {
 var Dict = map[string]string{
 `
 	for _, line := range strings.Split(string(data), "\n") {
-		var   wubiKey  string
+		var wubiKey string
 
 		lineS := strings.Split(line, "\t")
 		if len(lineS) <= 2 {
 			continue
 		}
-		if len(lineS)  ==3 {
+		if len(lineS) == 3 {
 			wubiKey = lineS[2]
-		}else {
-			wubiKey = strings.Join(lineS[2:],",")
+		} else {
+			wubiKey = strings.Join(lineS[2:], ",")
 		}
 
 		dict += fmt.Sprintf("\t\"%v\":\"%v\", // %v \n", lineS[0], wubiKey, lineS[1])
