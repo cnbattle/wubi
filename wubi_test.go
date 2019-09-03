@@ -40,3 +40,27 @@ func StringSliceEqual(a, b []string) bool {
 
 	return true
 }
+
+func TestGetChar(t *testing.T) {
+
+	tests := []struct {
+		name string
+		args string
+		want string
+	}{
+		{name: "", args: "启", want: "ynkd"},
+		{name: "", args: "爱", want: "epdc"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := GetChar(tt.args)
+			if err != nil {
+				t.Errorf("GetChar() error = %v, wantErr %v", err)
+				return
+			}
+			if got != tt.want {
+				t.Errorf("GetChar() got = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
