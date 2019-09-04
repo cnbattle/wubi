@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-// Get 获取字符串的笔记码
+// Get 获取字符串的五笔编码
 func Get(sText string) (unicode []string, err error) {
 	for _, value := range []rune(sText) {
 		char, err2 := GetChar(string(value))
@@ -18,9 +18,8 @@ func Get(sText string) (unicode []string, err error) {
 	return
 }
 
-// getChar 获取单字的笔记码
+// getChar 获取单字的五笔编码
 func GetChar(char string) (string, error) {
-
 	key := strings.Replace(strconv.QuoteToASCII(char), `\u`, ``, -1)
 	key = strings.Replace(strings.ToUpper(key), `"`, ``, -1)
 	if _, ok := dict[key]; ok {
